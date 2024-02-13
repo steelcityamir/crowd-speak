@@ -114,7 +114,7 @@ Create upvote and downvote buttons with the respective classes `crowdspeak-upvot
 <div data-id="100">
   <button class="crowdspeak-upvote">Upvote</button>
   <button class="crowdspeak-downvote">Downvote</button>
-  <span class="crowdspeak-score"></span>
+  <span class="crowdspeak-score">0</span>
 </div>
 ```
 
