@@ -62,6 +62,8 @@ npm run start
 
 Go to the site at [http://localhost:8080](http://localhost:8080).
 
+![Screenshot 2024-02-13 at 11 26 01 AM](https://github.com/codebyamir/crowd-speak/assets/54147931/4abb5171-e960-4cc1-8e38-b7a1a9bbcf2a)
+
 
 ## License
 This project is licensed under the MIT License - see the LICENSE.md file for details.
