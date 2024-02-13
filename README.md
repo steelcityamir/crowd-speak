@@ -16,13 +16,13 @@ Crowd Speak is a simple voting system for posts that's easy to run and install o
 
 ## 🐳 Quick Start using Docker
 
-### Build the Docker image
+### Build the Docker image for the API server
 
 ```bash
 docker build -t crowdspeak .
 ```
 
-### Run the Docker container
+### Run the Docker container to start the API server
 ```bash
 docker run -p 3000:3000 --name crowdspeak crowdspeak
 ```
