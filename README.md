@@ -85,8 +85,7 @@ npm run start
 
 Go to the site at [http://localhost:8080](http://localhost:8080).
 
-
-![Screenshot 2024-02-13 at 12 29 41 PM](https://github.com/codebyamir/crowd-speak/assets/54147931/eecfb15d-2d83-48a2-be28-2b8c01ecd7ee)
+https://github.com/codebyamir/crowd-speak/assets/54147931/079d58cd-c7e6-4ab0-8ecf-22fa92743382
 
 
 ## Integrating CrowdSpeak into your Site
