@@ -13,7 +13,36 @@ CrowdSpeak is a simple voting system for posts that's easy to run and install on
 - Node Express app
 - SQLite database
 
-## Getting Started
+## Quick Start using Docker
+
+### Build the Docker image
+
+```bash
+docker build -t crowdspeak .
+```
+
+### Run the Docker container
+```bash
+docker run -p 3000:3000 --name crowdspeak crowdspeak
+```
+
+This will start the API server at [http://localhost:3000](http://localhost:3000).
+
+### Run the demo 
+
+There is a basic demo site where you can see it in action.
+
+```bash
+cd demo
+npm install
+npm run start
+```
+
+Go to the site at [http://localhost:8080](http://localhost:8080).
+
+![Screenshot 2024-02-13 at 12 29 41 PM](https://github.com/codebyamir/crowd-speak/assets/54147931/eecfb15d-2d83-48a2-be28-2b8c01ecd7ee)
+
+## Building from source
 
 These instructions will get the project up and running on your local machine for development and testing purposes.
 
@@ -54,9 +83,9 @@ This should start the API at [http://localhost:3000](http://localhost:3000) with
 The API will create an empty SQLite database in `database.sqlite` if it does not exist.  
 
 
-### Running the demo 
+### Run the demo 
 
-There is a basic demo site you can use to see it in action.
+There is a basic demo site where you can see it in action.
 
 ```bash
 cd demo
@@ -65,8 +94,6 @@ npm run start
 ```
 
 Go to the site at [http://localhost:8080](http://localhost:8080).
-
-![Screenshot 2024-02-13 at 12 29 41 PM](https://github.com/codebyamir/crowd-speak/assets/54147931/eecfb15d-2d83-48a2-be28-2b8c01ecd7ee)
 
 
 ## Integrating CrowdSpeak into your Site
