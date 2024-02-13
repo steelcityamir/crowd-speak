@@ -1,6 +1,6 @@
-# CrowdSpeak
+# Crowd Speak
 
-CrowdSpeak is a simple voting system for posts that's easy to run and install on any site.  
+Crowd Speak is a simple voting system for posts that's easy to run and install on any site.  
 
 
 ## Features
