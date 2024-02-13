@@ -134,6 +134,14 @@
     <script>
         function clearLocalStorage() {
             localStorage.clear();
+            
+            // Reset all vote buttons to their initial states
+            document.querySelectorAll('.crowdspeak-upvote, .crowdspeak-downvote').forEach(button => {
+                button.disabled = false; // Enable the button
+                button.style.backgroundColor = ''; // Reset any inline styles (if you had changed colors)
+                button.textContent = button.classList.contains('crowdspeak-upvote') ? 'Upvote' : 'Downvote'; // Reset button text if changed
+            });
+
             alert('Vote history has been cleared.  You can vote again.');
         }
     </script>
