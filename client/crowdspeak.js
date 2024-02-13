@@ -15,6 +15,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
     // On page load, fetch and populate scores
     fetchAndPopulateScores();
 
+    // After scores are populated, check and disable voted buttons
+    disableVoteButtonsForVotedPosts();
+
     // Attach event listeners to upvote and downvote buttons
     document.querySelectorAll('.crowdspeak-upvote, .crowdspeak-downvote').forEach(button => {
         button.addEventListener('click', function () {
@@ -25,6 +28,21 @@ window.addEventListener('DOMContentLoaded', (event) => {
     });
 
 });
+
+const disableVoteButtonsForVotedPosts = () => {
+    document.querySelectorAll('div[data-id]').forEach(div => {
+        const postId = div.getAttribute('data-id');
+        const voteKey = getVoteKey(postId);
+        if (localStorage.getItem(voteKey)) {
+            const upvoteButton = div.querySelector('.crowdspeak-upvote');
+            const downvoteButton = div.querySelector('.crowdspeak-downvote');
+            if (upvoteButton && downvoteButton) {
+                upvoteButton.disabled = true;
+                downvoteButton.disabled = true;
+            }
+        }
+    });
+}
 
 const fetchAndPopulateScores = () => {
     axios.get(`${BASE_API_URL}/scores`)
@@ -42,7 +60,7 @@ const fetchAndPopulateScores = () => {
 
 const vote = (postId, action, clickedButton) => {
     // Construct a unique key for localStorage based on postId and action
-    const voteKey = `vote_${postId}`;
+    const voteKey = getVoteKey(postId);
 
     // Check if the user has already voted for this action on the post
     if (localStorage.getItem(voteKey)) {
@@ -57,7 +75,7 @@ const vote = (postId, action, clickedButton) => {
 
             // Mark this vote in localStorage to prevent future votes on the same post and action
             localStorage.setItem(voteKey, 'true');
-            
+
             // Disable both vote buttons for the post
             const parentDiv = clickedButton.parentNode;
             const upvoteButton = parentDiv.querySelector('.crowdspeak-upvote');
@@ -78,4 +96,8 @@ const refreshScore = (postId) => {
             }
         })
         .catch(error => console.error('Error updating score:', error));
+}
+
+const getVoteKey = (postId) => {
+    return `crowdspeak_vote_${postId}`;
 }
