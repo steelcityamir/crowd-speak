@@ -46,10 +46,22 @@ const fetchAndPopulateScores = () => {
 }
 
 const vote = (postId, action) => {
+    // Construct a unique key for localStorage based on postId and action
+    const voteKey = `vote_${postId}`;
+
+    // Check if the user has already voted for this action on the post
+    if (localStorage.getItem(voteKey)) {
+        console.info('You have already voted on this post.');
+        return; // Exit the function to prevent voting again
+    }
+
     axios.post(`${BASE_API_URL}/scores/${postId}/${action}`)
         .then(response => {
             // After voting, update the score for the specific post
             refreshScore(postId);
+
+            // Mark this vote in localStorage to prevent future votes on the same post and action
+            localStorage.setItem(voteKey, 'true');
         })
         .catch(error => console.error('Error posting vote:', error));
 }
