@@ -24,8 +24,8 @@ These instructions will get the project up and running on your local machine for
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/crowdspeak.git
-cd crowdspeak
+git clone https://github.com/codebyamir/crowd-speak.git
+cd crowd-speak
 ```
 
 Install and build the client:
