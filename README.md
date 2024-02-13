@@ -29,7 +29,7 @@ docker run -p 3000:3000 --name crowdspeak crowdspeak
 
 This will start the API server at [http://localhost:3000](http://localhost:3000).
 
-To launch a demo site that uses your local API server, see [Running the Demo](#running-the-demo)
+To launch a demo site that uses your local API server along with the JS client, see [Running the Demo](#running-the-demo).
 
 
 ## 🛠️ Building from source
