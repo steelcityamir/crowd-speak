@@ -2,7 +2,10 @@
 
 CrowdSpeak is a simple voting system for posts that's easy to run and install on any site.  
 
-It follows a Reddit-style voting system where each post has a score calculated by number of upvotes minus number of downvotes. 
+
+## Features
+- A Reddit-style voting system where each post has a score calculated by number of upvotes minus number of downvotes. 
+- Prevents a user from voting twice on same post by tracking votes in localStorage.
 
 
 ## Technology stack
