@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 const path = require('path');
 const cors = require('cors');
 
-const { db, getScoreById, updateScore, insertScore } = require('./database');
+const { getAllScores, getScoreById, updateScore, insertScore } = require('./database');
 
 // Load configuration from .env file
 dotenv.config();
@@ -14,11 +14,15 @@ const PORT = process.env.PORT || 3000;
 // Disable CORS for all routes and origins
 app.use(cors());
 
+// Serve static files from the public directory
+app.use(express.static(path.join(__dirname, './public')));
+
+// Enable Express to parse JSON bodies in incoming requests
 app.use(express.json());
 
 // Route to get all scores
 app.get('/scores', (req, res) => {
-    db.all('SELECT * FROM scores', [], (err, rows) => {
+    getAllScores((err, rows) => {
         if (err) {
             res.status(400).json({ "error": err.message });
             return;
@@ -33,7 +37,7 @@ app.get('/scores', (req, res) => {
 // Route to get a specific score by id
 app.get('/scores/:id', (req, res) => {
     const { id } = req.params;
-    db.get('SELECT * FROM scores WHERE id = ?', [id], (err, row) => {
+    getScoreById(id, (err, row) => {
         if (err) {
             res.status(400).json({ "error": err.message });
             return;
@@ -105,8 +109,6 @@ app.post('/scores/:id/downvote', (req, res) => {
     });
 });
 
-// Serve static files from the 'client/dist' directory
-app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
