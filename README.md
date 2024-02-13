@@ -65,5 +65,31 @@ Go to the site at [http://localhost:8080](http://localhost:8080).
 ![Screenshot 2024-02-13 at 11 26 01 AM](https://github.com/codebyamir/crowd-speak/assets/54147931/4abb5171-e960-4cc1-8e38-b7a1a9bbcf2a)
 
 
+## Integrating CrowdSpeak into your Site
+
+To add CrowdSpeak to your site, follow these steps:
+
+### Include the CrowdSpeak JS Library: 
+
+Include the crowdspeak.min.js in your HTML.
+
+```html
+<script src="http://localhost:3000/crowdspeak.min.js"></script>
+```
+
+### Add Voting Buttons and Score Display
+
+For each post, create a container `div` with `data-id` equal to a unique id.
+
+Create upvote and downvote buttons with the respective classes `crowdspeak-upvote` and `crowdspeak-downvote`. Also, include a span to display the score with the class `crowdspeak-score`.
+
+```html
+<div data-id="100">
+  <button class="crowdspeak-upvote">Upvote</button>
+  <button class="crowdspeak-downvote">Downvote</button>
+  <span class="crowdspeak-score"></span>
+</div>
+```
+
 ## License
 This project is licensed under the MIT License - see the LICENSE.md file for details.
