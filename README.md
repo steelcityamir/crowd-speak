@@ -41,7 +41,7 @@ You should now see minified JS file in `client/dist/crowdspeak.min.js`.
 Install and start the API server:
 
 ```bash
-cd ../api
+cd api
 npm install
 npm run start
 ```
@@ -56,7 +56,8 @@ The API will create an empty SQLite database in `database.sqlite` if it does not
 There is a basic demo site you can use to see it in action.
 
 ```bash
-cd ../demo
+cd demo
+npm install
 npm run start
 ```
 
