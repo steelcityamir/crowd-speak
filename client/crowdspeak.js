@@ -51,7 +51,7 @@ const vote = (postId, action) => {
 
     // Check if the user has already voted for this action on the post
     if (localStorage.getItem(voteKey)) {
-        console.info('You have already voted on this post.');
+        console.log('You have already voted on this post.');
         return; // Exit the function to prevent voting again
     }
 
