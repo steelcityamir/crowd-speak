@@ -94,7 +94,7 @@ Go to the site at [http://localhost:8080](http://localhost:8080).
 To add CrowdSpeak to your site, follow these steps:
 
 ### Self-host the API server 
-Run the API server behind a proxy or load balancer for TLS purposes.
+We recommend running the API server behind a reverse proxy or load balancer so it can be served with an SSL/TLS certificate.
 
 ### Add the CrowdSpeak JS client to your site
 
