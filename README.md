@@ -70,7 +70,7 @@ npm run start
 
 This should start the API at [http://localhost:3000](http://localhost:3000) with the minified JS file at [http://localhost:3000/crowdspeak.min.js](http://localhost:3000/crowdspeak.min.js).
 
-The API will create an empty SQLite database in `database.sqlite` if it does not exist.  
+The API will create an empty SQLite database in `api/database.sqlite` if it does not exist.  
 
 
 ## Running the demo 
