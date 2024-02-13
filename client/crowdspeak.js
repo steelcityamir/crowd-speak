@@ -1,8 +1,8 @@
-// crowdspeak.js
-const axios = require('axios');
+// Using ES6 import syntax for Axios
+import axios from 'axios';
 
 // Function to extract the base URL from the script's src attribute
-function getBaseApiUrl() {
+const getBaseApiUrl = () => {
     const currentScriptSrc = document.currentScript.src;
     const url = new URL(currentScriptSrc);
     return `${url.protocol}//${url.host}`;
@@ -17,22 +17,22 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     // Attach event listeners to upvote and downvote buttons
     document.querySelectorAll('.crowdspeak-upvote').forEach(button => {
-        button.addEventListener('click', function () {
-            const postId = this.parentNode.getAttribute('data-id');
+        button.addEventListener('click', () => {
+            const postId = button.parentNode.getAttribute('data-id');
             vote(postId, 'upvote');
         });
     });
 
     document.querySelectorAll('.crowdspeak-downvote').forEach(button => {
-        button.addEventListener('click', function () {
-            const postId = this.parentNode.getAttribute('data-id');
+        button.addEventListener('click', () => {
+            const postId = button.parentNode.getAttribute('data-id');
             vote(postId, 'downvote');
         });
     });
 });
 
-function fetchAndPopulateScores() {
-    axios.get(BASE_API_URL + "/scores")
+const fetchAndPopulateScores = () => {
+    axios.get(`${BASE_API_URL}/scores`)
         .then(response => {
             const scores = response.data.data;
             scores.forEach(score => {
@@ -45,7 +45,7 @@ function fetchAndPopulateScores() {
         .catch(error => console.error('Error fetching scores:', error));
 }
 
-function vote(postId, action) {
+const vote = (postId, action) => {
     axios.post(`${BASE_API_URL}/scores/${postId}/${action}`)
         .then(response => {
             // After voting, update the score for the specific post
@@ -54,7 +54,7 @@ function vote(postId, action) {
         .catch(error => console.error('Error posting vote:', error));
 }
 
-function refreshScore(postId) {
+const refreshScore = (postId) => {
     axios.get(`${BASE_API_URL}/scores/${postId}`)
         .then(response => {
             const score = response.data.data.score;
