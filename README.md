@@ -69,12 +69,15 @@ Go to the site at [http://localhost:8080](http://localhost:8080).
 
 To add CrowdSpeak to your site, follow these steps:
 
+### Self-host the API server 
+Run the API server behind a proxy or load balancer for TLS purposes.
+
 ### Include the CrowdSpeak JS Library: 
 
-Include the crowdspeak.min.js in your HTML.
+The `crowdspeak.min.js` file is available on the API server.
 
 ```html
-<script src="http://localhost:3000/crowdspeak.min.js"></script>
+<script src="https://<API_SERVER_URL>/crowdspeak.min.js"></script>
 ```
 
 ### Add Voting Buttons and Score Display
@@ -90,6 +93,8 @@ Create upvote and downvote buttons with the respective classes `crowdspeak-upvot
   <span class="crowdspeak-score"></span>
 </div>
 ```
+
+## Running in Production
 
 ## License
 This project is licensed under the MIT License - see the LICENSE.md file for details.
