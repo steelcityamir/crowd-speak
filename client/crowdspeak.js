@@ -1,6 +1,5 @@
 // crowdspeak.js
 const axios = require('axios');
-const baseUrl = 'http://localhost:3000/scores'; // Adjust the base URL as needed
 
 // Function to extract the base URL from the script's src attribute
 function getBaseApiUrl() {
