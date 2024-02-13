@@ -75,7 +75,7 @@ The API will create an empty SQLite database in `database.sqlite` if it does not
 
 ## Running the demo 
 
-There is a basic demo site where you can see it in action.
+There is a basic demo site where you can see it in action.  The demo requires the API server to be running at http://localhost:3000.
 
 ```bash
 cd demo
@@ -120,6 +120,8 @@ Create upvote and downvote buttons with the respective classes `crowdspeak-upvot
 
 ## API endpoints
 
+If you don't want to use our client, feel free to create your own using the API documentation below.
+
 ### Get all scores
 `GET /scores`
 
@@ -147,6 +149,7 @@ Create upvote and downvote buttons with the respective classes `crowdspeak-upvot
 ### Get score by id
 `GET /scores?id=1`
 
+#### Response
 ```json
 {
 	"message": "success",
@@ -157,16 +160,22 @@ Create upvote and downvote buttons with the respective classes `crowdspeak-upvot
 }
 ```
 
+#### Errors
+`404 Not Found` - id was not found
+
+
 ### Upvote 
 Increments the score by 1.  If the id does not exist, it will create it and set the score to 1.
 
 `POST /scores/:id/upvote`
+
 No request body required.
 
 ### Downvote
 Decrements the score by 1.  If the id does not exist, it will create it and set the score to -1.
 
 `POST /scores/:id/downvote`
+
 No request body required.
 
 ## License
