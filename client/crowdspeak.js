@@ -16,19 +16,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
     fetchAndPopulateScores();
 
     // Attach event listeners to upvote and downvote buttons
-    document.querySelectorAll('.crowdspeak-upvote').forEach(button => {
-        button.addEventListener('click', () => {
-            const postId = button.parentNode.getAttribute('data-id');
-            vote(postId, 'upvote');
+    document.querySelectorAll('.crowdspeak-upvote, .crowdspeak-downvote').forEach(button => {
+        button.addEventListener('click', function () {
+            const postId = this.parentNode.getAttribute('data-id');
+            const action = this.classList.contains('crowdspeak-upvote') ? 'upvote' : 'downvote';
+            vote(postId, action, this);
         });
     });
 
-    document.querySelectorAll('.crowdspeak-downvote').forEach(button => {
-        button.addEventListener('click', () => {
-            const postId = button.parentNode.getAttribute('data-id');
-            vote(postId, 'downvote');
-        });
-    });
 });
 
 const fetchAndPopulateScores = () => {
@@ -45,14 +40,14 @@ const fetchAndPopulateScores = () => {
         .catch(error => console.error('Error fetching scores:', error));
 }
 
-const vote = (postId, action) => {
+const vote = (postId, action, clickedButton) => {
     // Construct a unique key for localStorage based on postId and action
     const voteKey = `vote_${postId}`;
 
     // Check if the user has already voted for this action on the post
     if (localStorage.getItem(voteKey)) {
         console.log('You have already voted on this post.');
-        return; // Exit the function to prevent voting again
+        return;
     }
 
     axios.post(`${BASE_API_URL}/scores/${postId}/${action}`)
@@ -62,6 +57,13 @@ const vote = (postId, action) => {
 
             // Mark this vote in localStorage to prevent future votes on the same post and action
             localStorage.setItem(voteKey, 'true');
+            
+            // Disable both vote buttons for the post
+            const parentDiv = clickedButton.parentNode;
+            const upvoteButton = parentDiv.querySelector('.crowdspeak-upvote');
+            const downvoteButton = parentDiv.querySelector('.crowdspeak-downvote');
+            upvoteButton.disabled = true;
+            downvoteButton.disabled = true;
         })
         .catch(error => console.error('Error posting vote:', error));
 }
