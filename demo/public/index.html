@@ -22,6 +22,7 @@
         </header>
 
         <main>
+
             <div class="container fs-5 mb-5">
                 <div class="row mb-3 p-3 border">
                     <div class="col-md-8 themed-grid-col">My first post</div>
@@ -64,6 +65,19 @@
                 </div>
 
             </div>
+
+            <div class="container p-1 mt-2 mb-5">
+                <div class="alert alert-primary" role="alert">
+                    You can only vote once per post. To clear your vote history in <code>localStorage</code>, click on
+                    the below button.
+                    <hr />
+                    <button type="button" class="btn btn-warning" onclick="clearLocalStorage()"><i
+                            class="bi bi-x-circle-fill"></i> Clear</button>
+
+                </div>
+
+            </div>
+
             <div class="card mb-5">
 
                 <div class="card-body">
@@ -117,6 +131,12 @@
     <!-- Crowdspeak JS from your backend server -->
     <script src="http://localhost:3000/crowdspeak.min.js"></script>
 
+    <script>
+        function clearLocalStorage() {
+            localStorage.clear();
+            alert('Vote history has been cleared.  You can vote again.');
+        }
+    </script>
 </body>
 
 </html>
