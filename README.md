@@ -118,6 +118,8 @@ Create upvote and downvote buttons with the respective classes `crowdspeak-upvot
 </div>
 ```
 
+If you run into problems, take a look at the HTML [code](demo/public/index.html) for the demo site.
+
 ## API endpoints
 
 If you don't want to use our client, feel free to create your own using the API documentation below.
