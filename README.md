@@ -72,7 +72,7 @@ To add CrowdSpeak to your site, follow these steps:
 ### Self-host the API server 
 Run the API server behind a proxy or load balancer for TLS purposes.
 
-### Include the CrowdSpeak JS Library
+### Add the CrowdSpeak JS client to your site
 
 The `crowdspeak.min.js` file is available on the API server.
 
