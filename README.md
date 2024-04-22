@@ -46,7 +46,7 @@ These instructions will get the project up and running on your local machine for
 Clone the repository:
 
 ```bash
-git clone https://github.com/codebyamir/crowd-speak.git
+git clone https://github.com/steelcityamir/crowd-speak.git
 cd crowd-speak
 ```
 
@@ -85,7 +85,7 @@ npm run start
 
 Go to the site at [http://localhost:8080](http://localhost:8080).
 
-https://github.com/codebyamir/crowd-speak/assets/54147931/079d58cd-c7e6-4ab0-8ecf-22fa92743382
+https://github.com/steelcityamir/crowd-speak/assets/54147931/079d58cd-c7e6-4ab0-8ecf-22fa92743382
 
 
 ## Integrating CrowdSpeak into your Site
